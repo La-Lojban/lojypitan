@@ -13,4 +13,14 @@ Functionality
 
 ro x mu:
 
-    prina x
+   prina x
+
+Keywords
+--------
+False: jitfa
+None: noda
+True: jetnu
+and: e
+as: ca
+assert: xusra
+break: porpi
