@@ -1,15 +1,19 @@
-#!/usr/bin/env python
-# Implementation of the lojypitan language.
-# Converts from Lojban to Python then optionally runs the Python.
+'''
+Implementation of the lojypitan language.
+Converts from Lojban to Python then optionally runs the Python.
 
-# This package depends on PLY -- http://www.dabeaz.com/ply/
+This package depends on PLY -- http://www.dabeaz.com/ply/
 
-# Written by David Kilgore
-# Dalke Scientific Software, LLC
-# 26 October 2015, San Jose, California
-# 
-# This software is in the public domain.  For details see:
-#   http://creativecommons.org/licenses/publicdomain/
+Written by David Kilgore
+26 October 2015, San Jose, California
+
+This software is in the public domain.  For details see:
+  http://creativecommons.org/licenses/publicdomain/
+
+
+ca'e vimju_nimcu(filename, field_name):
+    pagre
+'''
 
 
 import sys
