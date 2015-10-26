@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-# Implementation of the LOLPython language.
-# Converts from LOLPython to Python then optionally runs the Python.
+# Implementation of the lojypitan language.
+# Converts from Lojban to Python then optionally runs the Python.
 
 # This package depends on PLY -- http://www.dabeaz.com/ply/
 
-# Written by Andrew Dalke <dalke@dalkescientific.com>
+# Written by David Kilgore
 # Dalke Scientific Software, LLC
-# 1 June 2007, Gothenburg, Sweden
+# 26 October 2015, San Jose, California
 # 
 # This software is in the public domain.  For details see:
 #   http://creativecommons.org/licenses/publicdomain/
@@ -17,13 +17,14 @@ import keyword
 import os
 import types
 from cStringIO import StringIO
+
 from ply import *
 
 
-__NAME__ = "lolpython"
+__NAME__ = "lojypitan"
 __VERSION__ = "1.0"
 
-# Translating LOLPython tokens to Python tokens
+# Translating lojypitan tokens to Python tokens
 # This could be cleaned up.  For example, some of
 # these tokens could be merged into one.
 tokens = (
@@ -697,7 +698,7 @@ def to_python(s):
 # API code for doing the translation and exec'ing the result
 
 def execfile(infile, module_name="__lolmain__"):
-    "file, module_name -- exec the lolpython file in a newly created module"
+    "file, module_name -- exec the lojypitan file in a newly created module"
     if not hasattr(infile, "read"):
         s = open(infile).read()
     else:
@@ -705,7 +706,7 @@ def execfile(infile, module_name="__lolmain__"):
     return execstring(s, module_name)
 
 def execstring(s, module_name="__lolmain__"):
-    "s, module_name -- exec the lolpython string in a newly created module"
+    "s, module_name -- exec the lojypitan string in a newly created module"
     python_s = to_python(s)
     # Doing this bit of trickiness so I can have LOLPython code act
     # like __main__.  This fix is enough to fool unittest.
@@ -730,16 +731,17 @@ def convert(filenames):
             convert_file(open(filename), open(base+".py", "w"))
 
 def help():
-    print """convert and run a lolpython program
+    print """convert and run a lojypitan program
 Commands are:
-    lolpython              Read a lolpython program from stdin and execute it
-    lolpython --convert    Convert a lolpython program from stdin 
+    lojypitan              Read a lojypitan program from stdin and execute it
+    lojypitan --convert    Convert a lojypitan program from stdin 
                                   and generate python to stdout
-    lolpython --convert filename1 [filename....] 
-                           Convert a list of lolpython files into Python files
-    lolpython filename [arg1 [arg2 ...]]
-                           Run a lolpython program using optional arguments
+    lojypitan --convert filename1 [filename....] 
+                           Convert a list of lojypitan files into Python files
+    lojypitan filename [arg1 [arg2 ...]]
+                           Run a lojypitan program using optional arguments
 """
+
 
 def main(argv):
     if len(argv) >= 2:
@@ -753,15 +755,14 @@ def main(argv):
             print __NAME__ + " " + __VERSION__
             return
 
-        # otherwise, run the lolpython program
+        # otherwise, run the lojypitan program
         sys.argv = sys.argv[1:]
         filename = sys.argv[0]
         execfile(filename, "__main__")
     else:
         # commands from stdin
         execfile(sys.stdin)
-        
-    
+
 
 if __name__ == "__main__":
     main(sys.argv)
