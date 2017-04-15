@@ -1,6 +1,12 @@
 # lojypitan
 Write Lojban instead of Python.
 
+Goals
+-----
+- Lojban-only syntax (no English words)
+- Minimal verbosity
+- Serious/practical use
+
 Python Compatibility
 - Probably start with Python3
 - Make it as seamless as possible (CPython, extending/embedding, Cython, etc.).  We eventually want this incorporated into the upstream Python distribution, as an alternative syntax that the syntax-checker will accept, but not sure if this is possible.  It's at least far more work than just writing a script/grammar that crudely translates from one language to another.
